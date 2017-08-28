@@ -1,0 +1,41 @@
+<html>
+  <title>PWA - Example</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="manifest" href="manifest.json">
+  
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="PWA">
+  <meta name="apple-mobile-web-app-title" content="PWA">
+  <meta name="theme-color" content="#00FF00">
+  <meta name="msapplication-navbutton-color" content="#00FF00">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="msapplication-starturl" content="/index.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <link rel="icon" type="image/png" sizes="192x192" href="logo.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="logo.png">
+  <body>
+    <h1>Hello PWA</h1>
+    <h2 id="time">0000000</h2>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').then(function(registration) {
+            console.log('Registration succeeded.')
+            registration.update()
+          }, function(err) {
+            console.log('ServiceWorker registration failed: ', err)
+          })
+        })
+      }
+    </script>
+    <script>
+      fetch('https://script.googleusercontent.com/macros/echo?user_content_key=dyLNhh44QmDindEIB4XjYHvbw9lGAhFrBzDmg9wg9yIMb7vDnMoK89SlxZBUEQ1oUCeywvZ1oRpg29SZVB6n-FnYOj-0_Z9jm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnJ9GRkcRevgjTvo8Dc32iw_BLJPcPfRdVKhJT5HNzQuXEeN3QFwl2n0M6ZmO-h7C6eIqWsDnSrEd&lib=MwxUjRcLr2qLlnVOLh12wSNkqcO1Ikdrk')
+      .then(res => res.json())
+      .then(time => {
+        document.getElementById('time').innerHTML = time.fulldate
+      })
+    </script>
+  </body>
+</html>
