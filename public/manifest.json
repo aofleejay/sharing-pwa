@@ -1,15 +1,27 @@
 {
-  "name": "PWA Example",
-  "short_name": "PWA",
+  "name": "Progressive Web Apps - example project",
+  "short_name": "PWA Example",
   "lang": "en-US",
-  "start_url": "/index.html",
-  "display": "standalone",
-  "theme_color": "#00FF00",
+  "start_url": "/",
+  "display": "fullscreen",
+  "theme_color": "#9EE073",
+  "background_color": "#9EE073",
   "icons": [
     {
       "src": "logo.png",
-      "sizes": "192x192",
+      "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "logo.png"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "144x144"
     }
   ]
 }

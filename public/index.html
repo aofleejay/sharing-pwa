@@ -1,42 +1,43 @@
-<html>
-  <title>PWA - Example</title>
-  <link rel="stylesheet" href="/index.css">
-  <link rel="manifest" href="/manifest.json">
+<html lang="en">
+  <title>PWA - Example Project</title> 
+  <link rel="manifest" href="manifest.json">
   
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="PWA">
-  <meta name="apple-mobile-web-app-title" content="PWA">
-  <meta name="theme-color" content="#00FF00">
-  <meta name="msapplication-navbutton-color" content="#00FF00">
+  <meta name="application-name" content="PWA Example">
+  <meta name="apple-mobile-web-app-title" content="PWA Example">
+  <meta name="theme-color" content="#9EE073">
+  <meta name="msapplication-navbutton-color" content="#9EE073">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="msapplication-starturl" content="/index.html">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="msapplication-starturl" content="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <link rel="icon" type="image/png" sizes="192x192" href="logo.png">
-  <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="logo.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="logo.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="512x512" href="logo.png">
+  <link rel="icon" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="icon" sizes="180x180" href="logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
+  <link rel="icon" sizes="144x144" href="logo.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="logo.png">
+
+  <link rel="stylesheet" href="/app.css">
   <body>
-    <h1>Hello PWA</h1>
-    <button id="abc">asdd</button>
-    <h2 id="time">0000000</h2>
+    <div class="container">
+      <h1>PWA Example Project</h1>
+      <h2 id="time">loading...</h2>
+    </div>
     <script>
-      if (navigator.serviceWorker) {
-        navigator.serviceWorker.register("sw.js", {
-          scope: "/"
-        }).then(function (reg) {
-          document.getElementById("abc").onClick = () => reg.update();
-          console.log('ServiceWorker scope: ', reg.scope);
-        }, function (err) {
-          console.log("service-worker register fail", err);
-        });
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register("service-worker.js").then(register => {
+            console.log('Register succeeded in scope : ', register.scope)
+          })
+        })
+      } else {
+        console.log('Service worker not support.')
       }
     </script>
-    <script>
-      fetch('https://script.googleusercontent.com/macros/echo?user_content_key=dyLNhh44QmDindEIB4XjYHvbw9lGAhFrBzDmg9wg9yIMb7vDnMoK89SlxZBUEQ1oUCeywvZ1oRpg29SZVB6n-FnYOj-0_Z9jm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnJ9GRkcRevgjTvo8Dc32iw_BLJPcPfRdVKhJT5HNzQuXEeN3QFwl2n0M6ZmO-h7C6eIqWsDnSrEd&lib=MwxUjRcLr2qLlnVOLh12wSNkqcO1Ikdrk')
-      .then(res => res.json())
-      .then(time => {
-        document.getElementById('time').innerHTML = time.fulldate
-      })
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>
