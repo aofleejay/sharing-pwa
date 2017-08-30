@@ -1,4 +1,4 @@
-const CSS_CACHE_KEY = 'cache-request-v5'
+const CSS_CACHE_KEY = 'cache-request-v6'
 const urlsToCache = [
   '/index.css',
 ]
