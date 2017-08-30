@@ -1,7 +1,7 @@
 <html>
   <title>PWA - Example</title>
-  <link rel="stylesheet" href="index.css">
-  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="/index.css">
+  <link rel="manifest" href="/manifest.json">
   
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -17,17 +17,18 @@
   <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="logo.png">
   <body>
     <h1>Hello PWA</h1>
+    <button id="abc">asdd</button>
     <h2 id="time">0000000</h2>
     <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/sw.js').then(function(registration) {
-            console.log('Registration succeeded.')
-            registration.update()
-          }, function(err) {
-            console.log('ServiceWorker registration failed: ', err)
-          })
-        })
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register("sw.js", {
+          scope: "/"
+        }).then(function (reg) {
+          document.getElementById("abc").onClick = () => reg.update();
+          console.log('ServiceWorker scope: ', reg.scope);
+        }, function (err) {
+          console.log("service-worker register fail", err);
+        });
       }
     </script>
     <script>
