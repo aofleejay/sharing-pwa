@@ -37,6 +37,30 @@
       } else {
         console.log('Service worker not support.')
       }
+
+      if (!('Notification' in window)) {
+        console.log("This browser does not support desktop notification")
+      }
+
+      else if (Notification.permission === 'granted') {
+        console.log('granted')
+        const notification = new Notification("Hello", {
+          body: 'This is push notification.',
+          icon: 'logo.png',
+        })
+      }
+    
+      else if (Notification.permission !== 'denied' || Notification.permission === 'default') {
+        console.log('default')
+        Notification.requestPermission(permission => {
+          if (permission === 'granted') {
+            const notification = new Notification("Welcome", {
+              body: 'This is push notification.',
+              icon: 'logo.png',
+            })
+          }
+        })
+      }
     </script>
     <script src="app.js"></script>
   </body>

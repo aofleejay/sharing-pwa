@@ -1,4 +1,4 @@
-const VERSION = '1'
+const VERSION = '6'
 const CACHE_KEY = `cache-v${VERSION}`
 const assetsToCache = [
   '/',
