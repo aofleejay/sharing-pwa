@@ -12,54 +12,20 @@
   <meta name="msapplication-starturl" content="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <link rel="icon" type="image/png" sizes="512x512" href="logo.png">
-  <link rel="apple-touch-icon" type="image/png" sizes="512x512" href="logo.png">
-  <link rel="icon" href="logo.png">
-  <link rel="apple-touch-icon" href="logo.png">
-  <link rel="icon" sizes="180x180" href="logo.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
-  <link rel="icon" sizes="144x144" href="logo.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="logo.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="512x512" href="assets/images/logo.png">
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" href="assets/images/logo.png">
+  <link rel="icon" sizes="180x180" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo.png">
+  <link rel="icon" sizes="144x144" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/images/logo.png">
 
-  <link rel="stylesheet" href="/app.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
   <body>
     <div class="container">
       <h1>PWA Example Project</h1>
-      <h2 id="time">loading...</h2>
     </div>
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register("service-worker.js").then(register => {
-            console.log('Register succeeded in scope : ', register.scope)
-          })
-        })
-      } else {
-        console.log('Service worker not support.')
-      }
-
-      if (!('Notification' in window)) {
-        console.log("This browser does not support desktop notification")
-      }
-
-      else if (Notification.permission === 'granted') {
-        const notification = new Notification("Hello", {
-          body: 'This is push notification.',
-          icon: 'logo.png',
-        })
-      }
-    
-      else if (Notification.permission !== 'denied' || Notification.permission === 'default') {
-        Notification.requestPermission(permission => {
-          if (permission === 'granted') {
-            const notification = new Notification("Welcome", {
-              body: 'This is push notification.',
-              icon: 'logo.png',
-            })
-          }
-        })
-      }
-    </script>
-    <script src="app.js"></script>
+    <script src="/assets/js/app.js"></script>
   </body>
 </html>

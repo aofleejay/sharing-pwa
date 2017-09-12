@@ -2,8 +2,9 @@ const VERSION = '1'
 const CACHE_KEY = `cache-v${VERSION}`
 const assetsToCache = [
   '/',
-  'app.css',
-  'app.js',
+  'assets/css/app.css',
+  'assets/js/app.js',
+  'assets/images/logo.png',
 ]
 
 self.addEventListener('install', event => {
