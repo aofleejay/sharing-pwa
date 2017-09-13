@@ -29,3 +29,12 @@ else if (Notification.permission !== 'denied' || Notification.permission === 'de
     }
   })
 }
+
+(function($){
+  $(function(){
+
+    $('.button-collapse').sideNav();
+    $('.parallax').parallax();
+
+  }); // end of document ready
+})(jQuery); // end of jQuery name space

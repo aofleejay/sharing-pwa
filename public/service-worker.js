@@ -5,6 +5,13 @@ const assetsToCache = [
   'assets/css/app.css',
   'assets/js/app.js',
   'assets/images/logo.png',
+  'assets/images/background1.png',
+  'assets/images/background2.png',
+  'assets/images/background3.png',
+  'https://fonts.googleapis.com/icon?family=Material+Icons',
+  'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css',
+  'https://code.jquery.com/jquery-2.1.1.min.js',
+  'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js',
 ]
 
 self.addEventListener('install', event => {
