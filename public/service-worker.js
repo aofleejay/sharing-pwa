@@ -1,13 +1,19 @@
-const VERSION = '1'
+const VERSION = '2'
 const CACHE_KEY = `cache-v${VERSION}`
 const assetsToCache = [
   '/',
-  'assets/css/app.css',
-  'assets/js/app.js',
-  'assets/images/logo.png',
-  'assets/images/background1.png',
-  'assets/images/background2.png',
-  'assets/images/background3.png',
+  '/assets/css/app.css',
+  '/assets/js/app.js',
+  '/assets/images/icons/icon-16x16.png',
+  '/assets/images/icons/icon-24x24.png',
+  '/assets/images/icons/icon-36x36.png',
+  '/assets/images/icons/icon-64x64.png',
+  '/assets/images/icons/icon-128x128.png',
+  '/assets/images/icons/icon-256x256.png',
+  '/assets/images/icons/icon-512x512.png',
+  '/assets/images/background1.png',
+  '/assets/images/background2.png',
+  '/assets/images/background3.png',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css',
   'https://code.jquery.com/jquery-2.1.1.min.js',
@@ -18,7 +24,6 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_KEY)
       .then(cache => cache.addAll(assetsToCache))
-      .then(() => self.skipWaiting())  
   )
 })
 
