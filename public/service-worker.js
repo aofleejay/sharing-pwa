@@ -1,4 +1,4 @@
-const VERSION = '2'
+const VERSION = '1'
 const CACHE_KEY = `cache-v${VERSION}`
 const assetsToCache = [
   '/',
@@ -6,7 +6,7 @@ const assetsToCache = [
   '/assets/js/app.js',
   '/assets/images/icons/icon-16x16.png',
   '/assets/images/icons/icon-24x24.png',
-  '/assets/images/icons/icon-36x36.png',
+  '/assets/images/icons/icon-32x32.png',
   '/assets/images/icons/icon-64x64.png',
   '/assets/images/icons/icon-128x128.png',
   '/assets/images/icons/icon-256x256.png',
