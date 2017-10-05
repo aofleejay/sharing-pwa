@@ -1,9 +1,12 @@
-const VERSION = '1'
+const VERSION = '3'
 const CACHE_KEY = `cache-v${VERSION}`
 const assetsToCache = [
   '/',
   '/assets/css/app.css',
+  '/assets/css/materialize.min.css',  
   '/assets/js/app.js',
+  '/assets/js/jquery-2.1.1.min.js',
+  '/assets/js/materialize.min.js',
   '/assets/images/icons/icon-16x16.png',
   '/assets/images/icons/icon-24x24.png',
   '/assets/images/icons/icon-32x32.png',
@@ -14,10 +17,6 @@ const assetsToCache = [
   '/assets/images/background1.jpg',
   '/assets/images/background2.jpg',
   '/assets/images/background3.jpg',
-  'https://fonts.googleapis.com/icon?family=Material+Icons',
-  'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css',
-  'https://code.jquery.com/jquery-2.1.1.min.js',
-  'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js',
 ]
 
 self.addEventListener('install', event => {
